@@ -18,7 +18,7 @@ patch_typeguard()  # use before @typechecked
 
 class WeatherBenchDataset(Dataset):
     def __init__(self, ds, var_dict, lead_time, observation_window=1, daily=True, load=True, cuda=False, mean=None,
-                 std=None, small_patch=None, predictionlength = 1):
+                 std=None, small_patch=None, predictionlength = 5):
         """
         Data generator for WeatherBench data.
         Template from https://stanford.edu/~shervine/blog/keras-how-to-generate-data-on-the-fly
@@ -137,7 +137,7 @@ class WeatherBenchDataset(Dataset):
 
 
 def load_weatherbench_data(weatherbench_data_folder, cuda, load_all_data_GPU, return_test=False,
-                           weatherbench_small=False, predictionlength = 2):
+                           weatherbench_small=False, predictionlength = 5):
     window_size = 10
     lead_time = 3 - window_size + 1  # 3 days
     # geopotential height:
