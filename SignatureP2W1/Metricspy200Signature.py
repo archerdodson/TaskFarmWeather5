@@ -61,7 +61,7 @@ cuda = False
 load_all_data_GPU = False
 
 nonlinearity = 'leaky_relu'
-data_size = torch.Size([10, 32, 64])              # For Lorenz63, typically data_size=1 or 3
+data_size = torch.Size([1, 32, 64])              # For Lorenz63, typically data_size=1 or 3
 auxiliary_var_size = 1
 seed = 0
 
@@ -429,8 +429,8 @@ with torch.no_grad():
     print(predictions_for_calibration.shape)
     print(target_data_test_for_calibration.shape)
 
-    predictions_for_calibrationarea = predictions_for_calibration.reshape(prediction_ensemble_size,354,32,64*prediction_length)
-    target_data_test_for_calibrationarea = target_data_test_for_calibration.reshape(354, 32, 64*prediction_length)
+    predictions_for_calibrationarea = predictions_for_calibration.reshape(prediction_ensemble_size,363,32,64*prediction_length)
+    target_data_test_for_calibrationarea = target_data_test_for_calibration.reshape(363, 32, 64*prediction_length)
     print('area')
     print(predictions_for_calibrationarea.shape)
     print(target_data_test_for_calibrationarea.shape)
@@ -443,8 +443,8 @@ with torch.no_grad():
 
 
     print('bad')
-    predictions_for_calibration = predictions_for_calibration.reshape(prediction_ensemble_size,354,32*64*prediction_length)
-    target_data_test_for_calibration = target_data_test_for_calibration.reshape(354, 32*64*prediction_length)
+    predictions_for_calibration = predictions_for_calibration.reshape(prediction_ensemble_size,363,32*64*prediction_length)
+    target_data_test_for_calibration = target_data_test_for_calibration.reshape(363, 32*64*prediction_length)
     print(predictions_for_calibration.shape)
     print(target_data_test_for_calibration.shape)
     data_size = target_data_test_for_calibration.shape[-1]

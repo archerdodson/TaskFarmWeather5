@@ -36,7 +36,7 @@ weatherbench_small = False
 #name_postfix = '_mytrainedmodelEnergyScore' ##Change this
 name_postfix = '_mytrainedmodelSignatureKernel' ##Change this
 training_ensemble_size = 3  #3/10
-prediction_ensemble_size = 5 ##3/10
+prediction_ensemble_size = 200 ##3/10
 prediction_length = 2  
 
 weights = np.array([0.07704437, 0.23039114, 0.38151911, 0.52897285, 0.67133229,
@@ -429,8 +429,8 @@ with torch.no_grad():
     print(predictions_for_calibration.shape)
     print(target_data_test_for_calibration.shape)
 
-    predictions_for_calibrationarea = predictions_for_calibration.reshape(prediction_ensemble_size,354,32,64*prediction_length)
-    target_data_test_for_calibrationarea = target_data_test_for_calibration.reshape(354, 32, 64*prediction_length)
+    predictions_for_calibrationarea = predictions_for_calibration.reshape(prediction_ensemble_size,363,32,64*prediction_length)
+    target_data_test_for_calibrationarea = target_data_test_for_calibration.reshape(363, 32, 64*prediction_length)
     print('area')
     print(predictions_for_calibrationarea.shape)
     print(target_data_test_for_calibrationarea.shape)
@@ -443,8 +443,8 @@ with torch.no_grad():
 
 
     print('bad')
-    predictions_for_calibration = predictions_for_calibration.reshape(prediction_ensemble_size,354,32*64*prediction_length)
-    target_data_test_for_calibration = target_data_test_for_calibration.reshape(354, 32*64*prediction_length)
+    predictions_for_calibration = predictions_for_calibration.reshape(prediction_ensemble_size,363,32*64*prediction_length)
+    target_data_test_for_calibration = target_data_test_for_calibration.reshape(363, 32*64*prediction_length)
     print(predictions_for_calibration.shape)
     print(target_data_test_for_calibration.shape)
     data_size = target_data_test_for_calibration.shape[-1]
