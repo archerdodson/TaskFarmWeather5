@@ -64,7 +64,7 @@ cuda = True
 load_all_data_GPU = True
 
 nonlinearity = 'leaky_relu'
-data_size = torch.Size([10, 32, 64])              # For Lorenz63, typically data_size=1 or 3
+data_size = torch.Size([1, 32, 64])              # For Lorenz63, typically data_size=1 or 3
 auxiliary_var_size = 1
 seed = 0
 

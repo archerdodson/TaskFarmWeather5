@@ -432,7 +432,7 @@ class SignatureEnergyCombined(ScoringRule):
         print(f"signaturescore: {signaturescore}")
         print(f"energyscore: {energyscore}")
 
-        energyscaled = -1*energyscore / 16
+        energyscaled = energyscore / 16
         print(f"energyscore scaled: {energyscaled}")
 
         combined = (signaturescore + energyscaled)/2

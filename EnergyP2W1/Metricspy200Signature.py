@@ -36,7 +36,7 @@ weatherbench_small = False
 #name_postfix = '_mytrainedmodelEnergyScore' ##Change this
 name_postfix = '_mytrainedmodelSignatureKernel' ##Change this
 training_ensemble_size = 3  #3/10
-prediction_ensemble_size = 200 ##3/10
+prediction_ensemble_size = 5 ##3/10
 prediction_length = 2  
 
 weights = np.array([0.07704437, 0.23039114, 0.38151911, 0.52897285, 0.67133229,
@@ -61,7 +61,7 @@ cuda = False
 load_all_data_GPU = False
 
 nonlinearity = 'leaky_relu'
-data_size = torch.Size([10, 32, 64])              # For Lorenz63, typically data_size=1 or 3
+data_size = torch.Size([1, 32, 64])              # For Lorenz63, typically data_size=1 or 3
 auxiliary_var_size = 1
 seed = 0
 
