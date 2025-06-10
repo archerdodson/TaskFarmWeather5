@@ -34,7 +34,7 @@ weatherbench_data_folder = "../geopotential_500_5.625deg"
 weatherbench_small = False
 
 #name_postfix = '_mytrainedmodelEnergyScore' ##Change this
-name_postfix = '_mytrainedmodelSignatureKernel' ##Change this
+name_postfix = '_mytrainedmodelSignatureKernelCombined' ##Change this
 training_ensemble_size = 3  #3/10
 prediction_ensemble_size = 200 ##3/10
 prediction_length = 2  
@@ -498,6 +498,6 @@ with torch.no_grad():
 
         string2 += f"{name}: has_nan={has_nan}, has_inf={has_inf}, shape={shape}\n"
     # Save to file
-    output_filename = "results/nets/calibration_metrics_Energy.txt"
+    output_filename = "results/nets/calibration_metrics_Combined.txt"
     with open(output_filename, "w") as f:
         f.write(string2)

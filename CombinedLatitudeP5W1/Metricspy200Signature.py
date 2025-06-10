@@ -34,10 +34,10 @@ weatherbench_data_folder = "../geopotential_500_5.625deg"
 weatherbench_small = False
 
 #name_postfix = '_mytrainedmodelEnergyScore' ##Change this
-name_postfix = '_mytrainedmodelSignatureKernel' ##Change this
+name_postfix = '_mytrainedmodelSignatureKernelCombined' ##Change this
 training_ensemble_size = 3  #3/10
 prediction_ensemble_size = 200 ##3/10
-prediction_length = 2  
+prediction_length = 5  
 
 weights = np.array([0.07704437, 0.23039114, 0.38151911, 0.52897285, 0.67133229,
        0.80722643, 0.93534654, 1.05445875, 1.16341595, 1.26116882,
@@ -61,7 +61,7 @@ cuda = False
 load_all_data_GPU = False
 
 nonlinearity = 'leaky_relu'
-data_size = torch.Size([10, 32, 64])              # For Lorenz63, typically data_size=1 or 3
+data_size = torch.Size([1, 32, 64])              # For Lorenz63, typically data_size=1 or 3
 auxiliary_var_size = 1
 seed = 0
 
@@ -429,8 +429,8 @@ with torch.no_grad():
     print(predictions_for_calibration.shape)
     print(target_data_test_for_calibration.shape)
 
-    predictions_for_calibrationarea = predictions_for_calibration.reshape(prediction_ensemble_size,354,32,64*prediction_length)
-    target_data_test_for_calibrationarea = target_data_test_for_calibration.reshape(354, 32, 64*prediction_length)
+    predictions_for_calibrationarea = predictions_for_calibration.reshape(prediction_ensemble_size,360,32,64*prediction_length)
+    target_data_test_for_calibrationarea = target_data_test_for_calibration.reshape(360, 32, 64*prediction_length)
     print('area')
     print(predictions_for_calibrationarea.shape)
     print(target_data_test_for_calibrationarea.shape)
@@ -443,8 +443,8 @@ with torch.no_grad():
 
 
     print('bad')
-    predictions_for_calibration = predictions_for_calibration.reshape(prediction_ensemble_size,354,32*64*prediction_length)
-    target_data_test_for_calibration = target_data_test_for_calibration.reshape(354, 32*64*prediction_length)
+    predictions_for_calibration = predictions_for_calibration.reshape(prediction_ensemble_size,360,32*64*prediction_length)
+    target_data_test_for_calibration = target_data_test_for_calibration.reshape(360, 32*64*prediction_length)
     print(predictions_for_calibration.shape)
     print(target_data_test_for_calibration.shape)
     data_size = target_data_test_for_calibration.shape[-1]
@@ -498,6 +498,6 @@ with torch.no_grad():
 
         string2 += f"{name}: has_nan={has_nan}, has_inf={has_inf}, shape={shape}\n"
     # Save to file
-    output_filename = "results/nets/calibration_metrics_Energy.txt"
+    output_filename = "results/nets/calibration_metrics_Combined.txt"
     with open(output_filename, "w") as f:
         f.write(string2)
