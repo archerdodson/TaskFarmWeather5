@@ -1,3 +1,33 @@
+/scrtp/avon/eb/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+unet
+Test SR network for WeatherBench model using SignatureKernel scoring rule
+Load weatherbench dataset...
+Loading data into RAM
+CPU memory used (MB) 17
+Loading data into RAM
+CPU memory used (MB) 5
+Loading data into RAM
+CPU memory used (MB) 2
+Loaded
+Validation set size: 726
+Test set size: 360
+find mean and std here
+test
+torch.Size([360, 200, 5, 32, 64, 1])
+torch.Size([360, 1, 5, 32, 64, 1])
+torch.Size([360, 200, 5, 32, 64])
+torch.Size([360, 5, 32, 64])
+yo
+three metrics
+(200, 360, 32, 5, 64)
+(360, 32, 5, 64)
+area
+(200, 360, 32, 320)
+(360, 32, 320)
+bad
+(200, 360, 10240)
+(360, 10240)
 Calibration metrics:
 x0: Cal. error 0.5050, RMSE 0.7141, R2 -16.8598
 x1: Cal. error 0.5050, RMSE 0.7142, R2 -16.6979
@@ -10256,14 +10286,3 @@ Average values: Cal. error, RMSE, R2
 
 		 0.5048  & 1.4016  &  -158.8462  \\ 
 
-NaN/Inf check for metric arrays:
-Cal error: has_nan=False, has_inf=False, shape=(10240,)
-RMSE: has_nan=False, has_inf=False, shape=(10240,)
-R2: has_nan=False, has_inf=False, shape=(10240,)
-NCRPS: has_nan=False, has_inf=False, shape=(10240,)
-RQE: has_nan=False, has_inf=False, shape=(32,)
-Cal error (weighted): has_nan=False, has_inf=False, shape=(10240,)
-RMSE (weighted): has_nan=False, has_inf=False, shape=(10240,)
-R2 (weighted): has_nan=False, has_inf=False, shape=(10240,)
-NCRPS (weighted): has_nan=False, has_inf=False, shape=(10240,)
-RQE (weighted): has_nan=False, has_inf=False, shape=(10240,)
